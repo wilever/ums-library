@@ -1,0 +1,119 @@
+# Most jobs need this image to be able to execute "mvn" command.
+image: maven:latest
+
+# This list of stages was influenced by the phases of Maven's default lifecycle, 
+# listed at: https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+# They're are supposed to be executed in sequence, each one containing a set of 
+# jobs that are executed in parallel.
+stages:
+  # Validates the project, compiles the source code and tests the compiled source.
+  - test
+  # Copies the final package to the remote repository.
+  - deploy
+
+# Environment variables (those that start with a $).
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+  # MAVEN_OPTS happens to be a local environment variable that will be overriden.
+  # -Dmaven.repo.local=.m2/repository: make sure Maven's cache is at the same location as GitLab's jobs cache.
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Djava.awt.headless=true"
+
+# Makes sure GitLab's cache points to Maven's cache folder
+cache:
+  paths:
+    - .m2/repository
+
+# Executes unit tests.
+test:units:
+  variables:
+    # It tells GitLab that it has to clone the repo and its submodules.
+    GIT_SUBMODULE_STRATEGY: recursive
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS clean test'
+
+# Packages compiled source and run integration tests.
+test:integration:
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS clean verify'
+
+# This job deploys the project (that has been previously packaged) to an application 
+# that has been previously created by the user, which name is stored in 
+# $HEROKU_APP_NAME_DEVELOP. It also specifies an environment for every deploy. 
+# Variables HEROKU_APP_NAME_DEVELOP and HEROKU_API_KEY are defined on GitLab.
+deploy:staging:
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  # dpl command (that deploys applications to different providers) requires this image.
+  image: ruby:latest
+  stage: deploy
+  cache: {}
+  script:
+    - |
+      # Script automatically fail and exit if any command returns anything but zero.
+      set -e
+      
+      if [[ $DEPLOY_TO_HEROKU == "true" ]]; then
+      
+        echo "Environment variable DEPLOY_TO_HEROKU has value: true"
+        echo "Attempting to deploy to Heroku..."
+        echo 'web: java -Dserver.port=$PORT -jar '$PATH_TO_JAR'' >> Procfile
+        
+        # Update the virtual container in order to install dpl.
+        apt-get -qq update
+        apt-get -yqq install ruby-dev
+        gem install dpl -q --silent
+        
+        # Use dpl to deploy the content of the virtual container to Heroku.
+        dpl --provider=heroku --app=$HEROKU_APP_NAME_DEVELOP --api-key=$HEROKU_API_KEY --skip-cleanup
+        
+        # If the application was successfully deployed and the value of DEPLOY_NOTIFY_SLACK is "true" 
+        if [[ $DEPLOY_NOTIFY_SLACK == "true" ]]; then
+
+          echo "Environment variable DEPLOY_NOTIFY_SLACK has value: true"
+          echo "Sending notifications to Slack..."
+
+          curl -f \
+          -X POST $DEPLOY_SLACK_WEBHOOK \
+          --data-urlencode "payload={\
+          \"channel\":\"$DEPLOY_SLACK_CHANNEL\",\
+          \"username\":\"$DEPLOY_SLACK_USERNAME\",\
+          \"text\":\"$DEPLOY_SLACK_MSG<https://$HEROKU_APP_NAME_DEVELOP.herokuapp.com>\"\
+          }"
+
+          # Print new line to the console
+          echo ""
+
+        else # If the value of DEPLOY_NOTIFY_SLACK is not "true".
+
+          echo "Environment variable DEPLOY_NOTIFY_SLACK has value: false"
+          echo "No notification will be sent."
+
+        fi # End of [[ $DEPLOY_NOTIFY_SLACK == "true" ]]
+        
+      else # If the value of DEPLOY_TO_HEROKU is not "true".
+      
+        echo "Environment variable DEPLOY_TO_HEROKU has value: false"
+        echo "Package will not be deployed."
+        
+      fi # End of [[ $DEPLOY_TO_HEROKU == "true" ]]
+
+  # If the application is deployed, an environment is created and it's made available at GitLab's 
+  # website. An environments works as a register that stores the name of the deployed app and 
+  # its URL.
+  environment:
+    # Name of the deploy.
+    name: $HEROKU_APP_NAME_DEVELOP
+    # The web site the application was deployed to.
+    url: https://$HEROKU_APP_NAME_DEVELOP.herokuapp.com
+  # Makes the deployed files available for download at GitLab's website.
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR
+    untracked: true
+  # This job should run when git ref develop is changed.
+  only:
+    - develop
