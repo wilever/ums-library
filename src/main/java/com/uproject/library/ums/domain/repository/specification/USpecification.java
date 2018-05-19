@@ -17,7 +17,7 @@ import com.google.common.base.Joiner;
  * The Class KSpecification.
  *
  * @param <T> the generic type
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class USpecification<T> implements Specification<T>{
 

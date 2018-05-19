@@ -10,7 +10,7 @@ import org.springframework.data.jpa.domain.Specifications;
  * The Class KSpecificationsBuilder. 
  * It generate specifications to found data on database.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class USpecificationBuilder {
 	

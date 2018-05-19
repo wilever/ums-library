@@ -5,7 +5,7 @@ import com.uproject.library.ums.service.UValidator;
 /**
  * Operator to be validate by {@link UValidator}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public enum UValidatorOperator {
 	

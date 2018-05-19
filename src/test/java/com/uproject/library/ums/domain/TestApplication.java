@@ -8,7 +8,7 @@ import com.uproject.library.ums.domain.repository.TestRepository;
 /**
  * TestApplication for test specification with {@link TestRepository}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @SpringBootApplication
 public class TestApplication {

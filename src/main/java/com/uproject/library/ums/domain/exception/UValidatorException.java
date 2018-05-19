@@ -6,9 +6,9 @@ import com.uproject.library.ums.domain.util.ErrorCode;
 import com.uproject.library.ums.domain.util.validator.UValidatorMessage;
 
 /**
- * Exceptions generate by data validations of Karanta MicroServices.
+ * Exceptions generate by data validations of UProject MicroServices.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class UValidatorException extends Exception{
 	

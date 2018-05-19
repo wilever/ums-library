@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Model of page metadata structure.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * 
  */
 @ApiModel(value="Page metadata structure")

@@ -3,9 +3,9 @@ package com.uproject.library.ums.domain.exception;
 import com.uproject.library.ums.domain.util.ErrorCode;
 
 /**
- * Exceptions generate by Karanta MicroServices.
+ * Exceptions generate by UProject MicroServices.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class UException extends Exception{
 

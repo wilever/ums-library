@@ -25,7 +25,7 @@ import com.uproject.library.ums.service.UValidator;
 /**
  * ValidatorTest for training.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class ValidatorTest {
 	

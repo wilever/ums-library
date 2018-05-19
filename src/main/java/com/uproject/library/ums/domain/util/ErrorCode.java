@@ -1,9 +1,9 @@
 package com.uproject.library.ums.domain.util;
 
 /**
- * Error code for Karanta MicroServices
+ * Error code for UProject MicroServices
  * 
- * @author [gomezw@karanta.com.ve]
+ * @author [wilevergomez@gmail.com]
  *
  */
 public enum ErrorCode {

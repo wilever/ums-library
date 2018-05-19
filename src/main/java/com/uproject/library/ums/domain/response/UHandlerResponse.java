@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Response for {@link UHandlerController}
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @ApiModel(value="Response exception from Handler")
 public class UHandlerResponse {

@@ -9,7 +9,7 @@ import org.springframework.hateoas.Link;
  * <li> PREV when another page is available before expected
  * <li> BOTH when another page is available after and before expected
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public enum PagePosition {
 	

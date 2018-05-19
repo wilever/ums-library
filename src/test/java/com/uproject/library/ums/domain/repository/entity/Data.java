@@ -9,7 +9,7 @@ import com.uproject.library.ums.domain.service.ValidatorTest;
 /**
  * Data for be use {@link ValidatorTest}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @Table(name="data")
 public class Data {

@@ -3,7 +3,7 @@ package com.uproject.library.ums.domain.util;
 /**
  * Methods to be implemented by MicroServices for manage data on database.
  * 
- *  @author Wilever Gomez [gomezw@karanta.com.ve]
+ *  @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public enum ApiMethod {
 	

@@ -37,10 +37,10 @@ import com.uproject.library.ums.domain.util.validator.UValidatorOperator;
 import com.uproject.library.ums.service.UValidator;
 
 /**
- * KTestAssistan is design for assist integration tests for Karanta MicroServices. 
+ * KTestAssistan is design for assist integration tests for UProject MicroServices. 
  * It is necessary indicate RestTemplate and PathToController before tests.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * @param <T> Entity to be tested
  */
 @Component

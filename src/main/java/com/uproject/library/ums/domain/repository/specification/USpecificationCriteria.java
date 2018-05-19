@@ -3,7 +3,7 @@ package com.uproject.library.ums.domain.repository.specification;
 /**
  * The Class SearchCriteria.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class USpecificationCriteria {
 	

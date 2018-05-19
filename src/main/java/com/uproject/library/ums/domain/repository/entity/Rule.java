@@ -14,7 +14,7 @@ import com.uproject.library.ums.service.UValidator;
 /**
  * Rule to be validate by {@link UValidator}
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @Entity
 @Table(name="rule")

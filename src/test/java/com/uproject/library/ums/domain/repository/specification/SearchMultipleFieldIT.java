@@ -21,7 +21,7 @@ import com.uproject.library.ums.domain.repository.specification.USpecificationOp
 /**
  * Test search by multiple fields.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest

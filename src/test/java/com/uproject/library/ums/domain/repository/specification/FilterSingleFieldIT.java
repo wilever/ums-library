@@ -22,7 +22,7 @@ import com.uproject.library.ums.domain.repository.specification.USpecificationOp
 /**
  * Test filter by single field.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest

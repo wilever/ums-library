@@ -14,7 +14,7 @@ import com.uproject.library.ums.domain.util.ApiMethod;
  * The Interface RuleRepository. 
  * It allow to perform CRUD operation over {@link Rule}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * 
  */
 @Repository

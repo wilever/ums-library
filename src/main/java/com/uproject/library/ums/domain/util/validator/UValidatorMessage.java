@@ -4,9 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Messages of exceptions generate by data validations of Karanta MicroServices.
+ * Messages of exceptions generate by data validations of UProject MicroServices.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @ApiModel(value="Validation error message")
 public class UValidatorMessage {

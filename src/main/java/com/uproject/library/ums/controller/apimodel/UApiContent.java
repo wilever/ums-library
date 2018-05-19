@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Model of content with system fields.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * 
  */
 @ApiModel(value="Content structure")

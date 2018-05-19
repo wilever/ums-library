@@ -22,7 +22,7 @@ import io.swagger.annotations.ResponseHeader;
 /**
  * It indicate what methods need to be implemented by controllers.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * @param <T> Entity to control
  */
 public interface UController<T> {

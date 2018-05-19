@@ -12,7 +12,7 @@ import com.uproject.library.ums.domain.repository.TestRepository;
 /**
  * TestEntity for be use by {@link TestRepository}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @Entity
 @Table(name="any_entity")

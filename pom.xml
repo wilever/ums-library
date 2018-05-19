@@ -67,7 +67,7 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                        	<mainClass>ve.com.karanta.project.library.name.domain</mainClass> 
+                        	<mainClass>ve.com.UProject.project.library.name.domain</mainClass> 
                             <classifier>exec</classifier>
                         </configuration>
                     </execution>

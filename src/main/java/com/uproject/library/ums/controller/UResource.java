@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
  * links and metadata from page.
  * 
  * @param <T> Entity to convert.
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @ApiModel(value="Data resources")
 public class UResource<T> {

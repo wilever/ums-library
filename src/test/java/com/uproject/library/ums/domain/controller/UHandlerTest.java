@@ -20,11 +20,11 @@ import javassist.NotFoundException;
 /**
  * Unit test for {@link UHandlerController}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public class UHandlerTest {
 	
-	/** The Karanta handler controller. */
+	/** The UProject handler controller. */
 	private UHandlerController kHand = new UHandlerController();
 	
 	/**

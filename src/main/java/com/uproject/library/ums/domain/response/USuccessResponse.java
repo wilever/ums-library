@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * It is return when the request return a success response.
  *
  * @param <T> The generic type
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @ApiModel(value="Success response")
 public class USuccessResponse<T> {

@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Model of {@link UResource} for use of swagger documentation.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  * 
  */
 @ApiModel(value="Data resources structure")

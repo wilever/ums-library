@@ -5,7 +5,7 @@ import com.uproject.library.ums.domain.response.USuccessResponse;
 /**
  * The Enum SuccessCode for {@link USuccessResponse}.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public enum SuccessCode {
 

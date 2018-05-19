@@ -25,7 +25,7 @@ import com.uproject.library.ums.domain.util.validator.UValidatorOperator;
  * It perform data validation over data before to be save on database. 
  * These validations are for training.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 @Service
 public class UValidator {

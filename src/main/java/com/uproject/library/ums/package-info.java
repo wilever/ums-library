@@ -1,7 +1,7 @@
 /**
- * Library for be implemented by Karanta MicroServices.
+ * Library for be implemented by UProject MicroServices.
  *
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  *
  */
 package com.uproject.library.ums;

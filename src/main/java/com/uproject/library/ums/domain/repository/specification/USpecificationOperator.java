@@ -7,7 +7,7 @@ import org.springframework.data.jpa.domain.Specification;
  * IMPORTANT: Operation just search by words, 
  * other symbols are not supported for now.
  * 
- * @author Wilever Gomez [gomezw@karanta.com.ve]
+ * @author Wilever Gomez [wilevergomez@gmail.com]
  */
 public enum USpecificationOperator {
     
