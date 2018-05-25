@@ -75,7 +75,8 @@ public class USpecification<T> implements Specification<T>{
 		 USpecificationBuilder builder = new USpecificationBuilder();
 		    String operationSetExper = Joiner.on("|").join(USpecificationOperator.SIMPLE_OPERATION_SET);
 		    Pattern pattern = Pattern.compile(
-		    		"(\\w+?)("+ operationSetExper + ")(\\p{Punct}?)(\\w+?)(\\p{Punct}?),");
+		    		//"(\\w+?)("+ operationSetExper + ")(\\p{Punct}?)(\\w+?)(\\p{Punct}?),");
+		    		"(\\S+?)("+ operationSetExper + ")(\\p{Punct}?)(\\S+?)(\\p{Punct}?),");
 		    Matcher matcher = pattern.matcher(params + USpecificationOperator.SEPARATOR);
 		    while (matcher.find()) {
 		        builder.with(
