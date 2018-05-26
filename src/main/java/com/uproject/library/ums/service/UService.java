@@ -71,7 +71,7 @@ public interface UService<T> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public ResponseEntity<Object> delete(
-			String id) throws IllegalAccessException, UException, UValidatorException;
+			String id, boolean logical) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Logically restore data on database.
@@ -92,6 +92,14 @@ public interface UService<T> {
 	 * @return PK of data saved
 	 */
 	public Object save(T data);
+	
+	/**
+	 * Delete data on database.
+	 *
+	 * @param data Data to delete
+	 * @return PK of data deleted
+	 */
+	public Object delete(T data);
 	
 	/**
 	 * Execute service for POST,PUT,DELETE and PATCH methods: Pre-conditions, validation, process, saved and generate response
@@ -115,8 +123,12 @@ public interface UService<T> {
 			} else {
 				preCondition(data, method);
 				validate(data, method);
-				return getResponse(
-						save(processData(data, method)), method);
+				if(method.equals(ApiMethod.DELETE)) {
+					return getResponse(delete(data),method);	
+				}else {
+					return getResponse(
+							save(processData(data, method)), method);
+				}
 			}
 	}
 	
@@ -143,7 +155,7 @@ public interface UService<T> {
 	 * @throws UValidatorException the KE validator
 	 */
 	public void validate(T data, ApiMethod method) throws IllegalAccessException, UException, UValidatorException;
-	
+	 
 	/**
 	 * Pre condition for execute methods.
 	 *

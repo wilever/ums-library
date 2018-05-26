@@ -93,35 +93,35 @@ public enum ErrorCode {
 	 * Assign codes and messages for errors.
 	 */
 	static {
-		BAD_REQUEST.code="EXXX";
+		BAD_REQUEST.code="E";
 			BAD_REQUEST.message="Error: Request had at least one error!";
-		NOT_TABLE.code="EXX0";
+		NOT_TABLE.code="E0";
 			NOT_TABLE.message="Error: Table of entity was not found on database!";
-		NOT_RULE.code="EXX1";
+		NOT_RULE.code="E1";
 			NOT_RULE.message="Error: Rule was not found on database!";
-		NOT_EXPECTED.code="EXX2";
+		NOT_EXPECTED.code="E2";
 			NOT_EXPECTED.message="Error: Value processed was not expected!";
-		OPERATOR_UNKNOWN.code="EXX3";
+		OPERATOR_UNKNOWN.code="E3";
 			OPERATOR_UNKNOWN.message="Error: Operator unknown";
-		DATA_NULL.code="EXX4";
+		DATA_NULL.code="E4";
 			DATA_NULL.message="Error: Data processed was null!";
-		DATA_NOT_ACTIVE.code="EXX5";
+		DATA_NOT_ACTIVE.code="E5";
 			DATA_NOT_ACTIVE.message="Error: Data processed was not active!";
-		DATA_ACTIVE.code="EXX6";
+		DATA_ACTIVE.code="E6";
 			DATA_ACTIVE.message="Error: Data processed was active!";
-		DATA_NOT_SAVE.code="EXX7";
+		DATA_NOT_SAVE.code="E7";
 			DATA_NOT_SAVE.message="Error: Data was not save!";
-		ERROR_MULTIPLE.code= "EXX8";
+		ERROR_MULTIPLE.code= "E8";
 			ERROR_MULTIPLE.message= "Error: Multiple errors detected!";
-		PK_NOT_AVAILABLE.code= "EXX9";
+		PK_NOT_AVAILABLE.code= "E9";
 			PK_NOT_AVAILABLE.message= "Error: Primary key was not found on database";
-		METHOD_NOT_AVAILABLE.code="EX10";
+		METHOD_NOT_AVAILABLE.code="E10";
 			METHOD_NOT_AVAILABLE.message="Error: Method was not available";
-		UNAUTHORIZED.code="EX11";
+		UNAUTHORIZED.code="E11";
 			UNAUTHORIZED.message="Error: Authentication is needed to get requested response!";
-		FORBIDDEN.code="EX12";
+		FORBIDDEN.code="E12";
 			FORBIDDEN.message="Error: Client does not have access rights to the content so server is rejecting to give proper response!";
-		NOT_FOUND.code="EX13";
+		NOT_FOUND.code="E13";
 			NOT_FOUND.message="Error: Server can not find requested resource!";
 	}
 	
