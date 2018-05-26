@@ -20,7 +20,10 @@ public enum ApiMethod {
 	DELETE,
 	
 	/** The PUT method for restore data. */
-	RESTORE;
+	RESTORE,
+	
+	/** The Logical DELETE method. */
+	DELETE_LOGICAL;
 	
 	/** The code. */
 	private String code;
@@ -29,16 +32,18 @@ public enum ApiMethod {
 	private String message;
 	
 	static {
-		GET.code="AMXX1";
+		GET.code="AM1";
 			GET.message="Data get successfully!";
-		ADD.code="AMXX1";
+		ADD.code="AM1";
 			ADD.message="Data added successfully!";
-		UPDATE.code="AMXX2";
+		UPDATE.code="AM2";
 			UPDATE.message="Data updated successfully!";
-		DELETE.code="AMXX3";
+		DELETE.code="AM3";
 			DELETE.message="Data deleted successfully!";
-		RESTORE.code="AMXX4";
+		RESTORE.code="AM4";
 			RESTORE.message="Data restored successfully!";
+		DELETE_LOGICAL.code="AM4";
+			DELETE_LOGICAL.message="Data logical deleted successfully!";
 	}
 	
 	/**

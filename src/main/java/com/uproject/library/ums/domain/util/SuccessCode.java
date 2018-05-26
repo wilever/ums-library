@@ -19,9 +19,9 @@ public enum SuccessCode {
 	private String message;
 	
 	static {
-		DEFAULT.code="SXX1";
+		DEFAULT.code="S1";
 			DEFAULT.message="Success!";
-		NO_CONTENT.code="SXX2";
+		NO_CONTENT.code="S2";
 			NO_CONTENT.message="Data got successfully but there was no content!";
 	}
 	
