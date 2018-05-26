@@ -174,6 +174,9 @@ public interface UService<T> {
 			case DELETE:
 				preDelete(data);
 				break;
+			case DELETE_LOGICAL:
+				preDeleteLogical(data);
+				break;
 			case RESTORE:
 				preRestore(data);
 				break;
@@ -214,6 +217,14 @@ public interface UService<T> {
 	public void preDelete(T data) throws UException;
 	
 	/**
+	 * Pre-conditions for logical delete data.
+	 *
+	 * @param data The data
+	 * @throws UException The k exception
+	 */
+	public void preDeleteLogical(T data) throws UException;
+	
+	/**
 	 * Pre-conditions for logically restore data.
 	 *
 	 * @param data The data
@@ -241,6 +252,9 @@ public interface UService<T> {
 		case DELETE:
 			data = processDelete(data);
 			break;
+		case DELETE_LOGICAL:
+			data = processDeleteLogical(data);
+			break;
 		case RESTORE:
 			data = processRestore(data);
 			break;
@@ -267,12 +281,20 @@ public interface UService<T> {
 	public T processUpdate(T data);
 	
 	/**
-	 * Process data to logically delete before save.
+	 * Process data to delete before save.
 	 *
 	 * @param data the data
 	 * @return the t
 	 */
 	public T processDelete(T data);
+	
+	/**
+	 * Process data to logically delete before save.
+	 *
+	 * @param data the data
+	 * @return the t
+	 */
+	public T processDeleteLogical(T data);
 	
 	/**
 	 * Process data to logically restore before save.

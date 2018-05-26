@@ -215,7 +215,7 @@ public class FilterSingleFieldIT {
 	/**
 	 * Value not compatible.
 	 */
-	@Test
+	@Test(expected=InvalidDataAccessApiUsageException.class)
 	public void ValueNotCompatible() {
 		filter="fielddddd"+USpecificationOperator.EQUALITY.operator+"????";
 		actualList = repository.findAll(USpecification.getSpecifications(search, filter));
