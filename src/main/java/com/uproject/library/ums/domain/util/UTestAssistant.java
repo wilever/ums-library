@@ -650,15 +650,17 @@ public class UTestAssistant<T> {
 	/**
 	 * Generate data not valid for generate a {@link UValidatorException}
 	 * 
-	 * @param data Data to be convert.
-	 * @param column Column to be process.
-	 * @param method Api method called.
-	 * @return Data fail.
+	 * @param data data to process
+	 * @param fieldName fielName (CamelCase)
+	 * @param columnName columnName (SanakeCase)
+	 * @param method method to validate
+	 * @return dataFake
 	 * @throws Exception
 	 */
 	public T getDataNotValid(
 					T data,
-					String column,
+					String fieldName,
+					String columnName,
 					ApiMethod method) 
 								throws Exception {
 		Class<?> classType = data.getClass();
@@ -667,11 +669,11 @@ public class UTestAssistant<T> {
 			String tableName = table.name();
 			this.rule = setRule(
 							tableName, 
-							column, 
+							columnName, 
 							method, 
 							"valueExpected", 
 							UValidatorOperator.EQUAL);
-			Field field = data.getClass().getDeclaredField(column);
+			Field field = data.getClass().getDeclaredField(fieldName);
 			field.setAccessible(true);
 			field.set(data, "valueNotExpected");
 			field.setAccessible(false);

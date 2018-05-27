@@ -241,8 +241,9 @@ public interface UService<T, E> {
 	 * @param data The data
 	 * @param method The method
 	 * @return The t
+	 * @throws UException 
 	 */
-	public default T processData(T data, ApiMethod method) {
+	public default T processData(T data, ApiMethod method) throws UException {
 		
 		switch (method) {
 		case ADD:
@@ -272,8 +273,9 @@ public interface UService<T, E> {
 	 *
 	 * @param data The data
 	 * @return The t
+	 * @throws UException 
 	 */
-	public T processAdd(T data);
+	public T processAdd(T data) throws UException;
 	
 	/**
 	 * Process data to update before save.
