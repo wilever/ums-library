@@ -18,7 +18,7 @@ import com.uproject.library.ums.domain.util.ErrorCode;
  * @param <T> Entity to manage
  * @param <E>
  */
-public interface UService<T, E> {
+public interface UService<T, P, V> {
 	
 	/**
 	 * Gets data from database.
@@ -36,7 +36,7 @@ public interface UService<T, E> {
 			String search, 
 			String filter,
 			Pageable pageable,
-			PagedResourcesAssembler<T> assembler) throws IllegalAccessException, UException, UValidatorException;
+			PagedResourcesAssembler<V> assembler) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Adds new data to database.
@@ -73,7 +73,7 @@ public interface UService<T, E> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public ResponseEntity<Object> delete(
-			E id, boolean logical) throws IllegalAccessException, UException, UValidatorException;
+			P id, boolean logical) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Logically restore data on database.
@@ -86,7 +86,7 @@ public interface UService<T, E> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public ResponseEntity<Object> restore(
-			E id) throws IllegalAccessException, UException, UValidatorException;
+			P id) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Save data on database.
@@ -94,7 +94,7 @@ public interface UService<T, E> {
 	 * @param data Data to save
 	 * @return PK of data saved
 	 */
-	public E save(T data);
+	public P save(T data);
 	
 	/**
 	 * Delete data on database.
@@ -102,7 +102,7 @@ public interface UService<T, E> {
 	 * @param data Data to delete
 	 * @return PK of data deleted
 	 */
-	public E delete(T data);
+	public P delete(T data);
 	
 	/**
 	 * Execute service for POST,PUT,DELETE and PATCH methods: Pre-conditions, validation, process, saved and generate response
