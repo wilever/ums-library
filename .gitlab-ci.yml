@@ -60,7 +60,7 @@ deploy:staging:
       
         echo "Environment variable DEPLOY_TO_HEROKU has value: true"
         echo "Attempting to deploy to Heroku..."
-        echo 'web: java -Dserver.port=$PORT -jar '$PATH_TO_JAR'' >> Procfile
+        echo 'web: java -Dserver.port=$PORT -jar $PATH_TO_JAR' >> Procfile
         
         # Update the virtual container in order to install dpl.
         apt-get -qq update
