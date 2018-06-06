@@ -18,7 +18,7 @@ import com.uproject.library.ums.domain.util.ErrorCode;
  * @param <T> Entity to manage
  * @param <E>
  */
-public interface UService<T, P, V> {
+public interface UService<E, P, V> {
 	
 	/**
 	 * Gets data from database.
@@ -48,7 +48,7 @@ public interface UService<T, P, V> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public ResponseEntity<Object> add(
-			T data) throws IllegalAccessException, UException, UValidatorException;
+			E data) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Update data on database.
@@ -60,7 +60,7 @@ public interface UService<T, P, V> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public ResponseEntity<Object> update(
-			T data) throws IllegalAccessException, UException, UValidatorException;
+			E data) throws IllegalAccessException, UException, UValidatorException;
 	
 	/**
 	 * Logically delete data on database.
@@ -94,7 +94,7 @@ public interface UService<T, P, V> {
 	 * @param data Data to save
 	 * @return PK of data saved
 	 */
-	public P save(T data);
+	public P save(E data);
 	
 	/**
 	 * Delete data on database.
@@ -102,7 +102,7 @@ public interface UService<T, P, V> {
 	 * @param data Data to delete
 	 * @return PK of data deleted
 	 */
-	public P delete(T data);
+	public P delete(E data);
 	
 	/**
 	 * Execute service for POST,PUT,DELETE and PATCH methods: Pre-conditions, validation, process, saved and generate response
@@ -115,7 +115,7 @@ public interface UService<T, P, V> {
 	 * @throws UValidatorException The KE validator
 	 */
 	public default ResponseEntity<Object> execute(
-			T data, 
+			E data, 
 			ApiMethod method) 
 					throws 
 						IllegalAccessException, 
@@ -157,7 +157,7 @@ public interface UService<T, P, V> {
 	 * @throws UException the k exception
 	 * @throws UValidatorException the KE validator
 	 */
-	public void validate(T data, ApiMethod method) throws IllegalAccessException, UException, UValidatorException;
+	public void validate(E data, ApiMethod method) throws IllegalAccessException, UException, UValidatorException;
 	 
 	/**
 	 * Pre condition for execute methods.
@@ -166,7 +166,7 @@ public interface UService<T, P, V> {
 	 * @param method The method
 	 * @throws UException The k exception
 	 */
-	public default void preCondition(T data, ApiMethod method) throws UException {
+	public default void preCondition(E data, ApiMethod method) throws UException {
 			switch (method) {
 			case ADD:
 				preAdd(data);
@@ -201,7 +201,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @throws UException The k exception
 	 */
-	public void preAdd(T data) throws UException;
+	public void preAdd(E data) throws UException;
 	
 	/**
 	 * Pre-conditions for update data.
@@ -209,7 +209,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @throws UException The k exception
 	 */
-	public void preUpdate(T data) throws UException;
+	public void preUpdate(E data) throws UException;
 	
 	/**
 	 * Pre-conditions for delete data.
@@ -217,7 +217,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @throws UException The k exception
 	 */
-	public void preDelete(T data) throws UException;
+	public void preDelete(E data) throws UException;
 	
 	/**
 	 * Pre-conditions for logical delete data.
@@ -225,7 +225,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @throws UException The k exception
 	 */
-	public void preDeleteLogical(T data) throws UException;
+	public void preDeleteLogical(E data) throws UException;
 	
 	/**
 	 * Pre-conditions for logically restore data.
@@ -233,7 +233,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @throws UException The k exception
 	 */
-	public void preRestore(T data) throws UException;
+	public void preRestore(E data) throws UException;
 	
 	/**
 	 * Process data before save.
@@ -243,7 +243,7 @@ public interface UService<T, P, V> {
 	 * @return The t
 	 * @throws UException 
 	 */
-	public default T processData(T data, ApiMethod method) throws UException {
+	public default E processData(E data, ApiMethod method) throws UException {
 		
 		switch (method) {
 		case ADD:
@@ -275,7 +275,7 @@ public interface UService<T, P, V> {
 	 * @return The t
 	 * @throws UException 
 	 */
-	public T processAdd(T data) throws UException;
+	public E processAdd(E data) throws UException;
 	
 	/**
 	 * Process data to update before save.
@@ -283,7 +283,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @return The t
 	 */
-	public T processUpdate(T data);
+	public E processUpdate(E data);
 	
 	/**
 	 * Process data to delete before save.
@@ -291,7 +291,7 @@ public interface UService<T, P, V> {
 	 * @param data the data
 	 * @return the t
 	 */
-	public T processDelete(T data);
+	public E processDelete(E data);
 	
 	/**
 	 * Process data to logically delete before save.
@@ -299,7 +299,7 @@ public interface UService<T, P, V> {
 	 * @param data the data
 	 * @return the t
 	 */
-	public T processDeleteLogical(T data);
+	public E processDeleteLogical(E data);
 	
 	/**
 	 * Process data to logically restore before save.
@@ -307,7 +307,7 @@ public interface UService<T, P, V> {
 	 * @param data The data
 	 * @return The t
 	 */
-	public T processRestore(T data);
+	public E processRestore(E data);
 	
 	/**
 	 * Gets the response.
