@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author Wilever Gomez [wilevergomez@gmail.com]
  * 
  */
-@ApiModel(value="Content structure")
+@ApiModel(value="Example Content structure")
 public class UApiContent {
 	
 	/** Unique identifier for data. */

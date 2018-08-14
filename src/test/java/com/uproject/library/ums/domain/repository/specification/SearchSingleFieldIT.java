@@ -201,16 +201,6 @@ public class SearchSingleFieldIT {
 	}
 	
 	/**
-	 * No word.
-	 */
-	@Test
-	public void NoWord() {
-		search="descriptionField"+USpecificationOperator.EQUALITY.operator+"*Field-sss";
-		actualList = repository.findAll(USpecification.getSpecifications(search, filter));
-		assertThat(actualList).hasSize(4);
-	}
-	
-	/**
 	 * No field.
 	 */
 	@Test(expected=InvalidDataAccessApiUsageException.class)
@@ -223,7 +213,7 @@ public class SearchSingleFieldIT {
 	/**
 	 * Value not compatible.
 	 */
-	@Test
+	@Test(expected=InvalidDataAccessApiUsageException.class)
 	public void ValueNotCompatible() {
 		search="fielddddd"+USpecificationOperator.EQUALITY.operator+"????";
 		actualList = repository.findAll(USpecification.getSpecifications(search, filter));
